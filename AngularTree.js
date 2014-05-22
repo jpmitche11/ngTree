@@ -33,7 +33,11 @@ angular.module('TreeModule', []).directive('ngTree', function($compile) {
                     childScope[treeExp] = parentNode;
 
                     // Construct a repeater for the possible children
-                    repeaterExp = "<span ng-repeat='"+treeExp+" in "+treeExp+"."+childrenExp+" | orderBy:"+'"'+orderExp+'"'+"'></span>";
+                    repeaterExp = "<span ng-repeat='"+treeExp+" in "+
+                        treeExp+"."+childrenExp+
+                        (orderExp ? " | orderBy:"+'"'+orderExp+'"' : '' )+
+                        "'></span>";
+
                     repeater = angular.element(repeaterExp);
                     // Inject the provided template into the repeater.
                     childrenHtml = repeater.append(parentElement.clone());
