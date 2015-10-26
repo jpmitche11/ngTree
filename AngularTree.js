@@ -15,7 +15,8 @@
  *
  * @author mishabosin
  */
-angular.module('TreeModule', []).directive('ngTree', function($compile) {
+angular.module('TreeModule', [])
+.directive('ngTree', ['$compile', function($compile) {
     return {
         transclude: false,
         terminal: true,
@@ -51,4 +52,4 @@ angular.module('TreeModule', []).directive('ngTree', function($compile) {
             };
         }
     };
-});
+}]);
